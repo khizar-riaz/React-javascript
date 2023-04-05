@@ -5,7 +5,7 @@ export const Todos = (props) => {
     <div className='container'>
      <h3 className='text-center'>Todos List</h3>
      {props.todos.map((todo)=>{
-        return  <TodoItem todo={todo}/> 
+        return  <TodoItem todo={todo} key={todo.sno} onDelete={props.onDelete}/> //the key is act as primary and unique value
      })}
     
     </div>
