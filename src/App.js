@@ -37,7 +37,7 @@ function App() {
   ]);
   return (
     <>
-      <Header title="TO DO LIST" searchBar={true} />
+      <Header title="TO DO LIST for me" searchBar={true} />
       <AddTodo/>
       <Todos todos={todos} onDelete={onDelete} />
       <Footer />
