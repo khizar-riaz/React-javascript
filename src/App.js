@@ -7,7 +7,7 @@ import { AddTodo } from "./MyComponents/AddTodo";
 import React, { useState } from "react"; //hooks let you use state and other React features without writing a class.
 function App() {
   const onDelete = (todo) => {
-    console.log("I am on delete", todo);
+    console.log("I am onrfrfrfrfrgit delete", todo);
     //deleting will not work in this way
     // let index = todos.indexOf(todo);
     // todos.splice(index,1);
