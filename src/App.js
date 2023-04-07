@@ -42,6 +42,7 @@ function App() {
       <Todos todos={todos} onDelete={onDelete} />
       <Footer />
     </>
+  
   );
 } 
 
