@@ -3,12 +3,19 @@ import './App.css';
 import Header from './MyComponents/Header'  //rfc default function import without brackets
 import { Todos } from "./MyComponents/Todos"; //rafc  const function import with brackets and spece between
 import { Footer  } from "./MyComponents/Footer";
+import React, {useState} from 'react';  //hooks let you use state and other React features without writing a class.
 function App() {
   const onDelete =(todo) =>{
    
     console.log("I am on delete", todo)
+    //deleting will not work in this way
+   // let index = todos.indexOf(todo);
+   // todos.splice(index,1);
+   setTodos(todos.filter((e)=>{  //filter is an higher order array method
+    return e!==todo;
+   }))
   }
-  let todos = [
+  const [todos, setTodos] = useState([
     {
       sno: 1,
       title: "go to the market",
@@ -25,7 +32,7 @@ function App() {
       desc:"you need to go to the penny"
     },
 
-  ]
+  ]);
   return (
     <>
       <Header title="TO DO LIST" searchBar={true}/>
