@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
-export const AddTodo = () => {
+export const AddTodo = (props) => {
+        const [title, setTitle] = useState("");
+        const [desc, setDesc] = useState("");
+
+        const Submit = () =>
+        {
+
+        }
   return (
     <div className="container my-3">
         <h3>Add a AddTodo</h3>
@@ -11,6 +18,7 @@ export const AddTodo = () => {
           </label>
           <input
             type="email"
+            value={title}
             class="form-control"
             id="title"
             aria-describedby="emailHelp"
@@ -22,18 +30,13 @@ export const AddTodo = () => {
           </label>
           <input
             type="text"
+            value={desc}
             class="form-control"
             id="desc"
           />
         </div>
-        <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-          <label class="form-check-label" for="exampleCheck1">
-            Check me out
-          </label>
-        </div>
         <button type="submit" class="btn btn-sm btn-success">
-          Submit
+          Add Todo
         </button>
       </form>
     </div>
