@@ -7,7 +7,7 @@ import { AddTodo } from "./MyComponents/AddTodo";
 import React, { useState } from "react"; //hooks let you use state and other React features without writing a class.
 function App() {
   const onDelete = (todo) => {
-    console.log("I am onrfrfrfrfrgit delete", todo);
+    console.log("I am on delete", todo);
     //deleting will not work in this way
     // let index = todos.indexOf(todo);
     // todos.splice(index,1);
@@ -17,6 +17,26 @@ function App() {
         return e !== todo;
       })
     );
+  };
+  const addTodo = (title, desc) => {
+    console.log("I am adding todo", title, desc);
+    let sno;
+    if(todos.length==0)
+    {
+      sno=1;
+    }
+    else
+    {
+      sno = todos[todos.length - 1].sno + 1;
+    }
+    const myTodo = {
+      sno: sno,
+      title: title,
+      desc: desc,
+    };
+
+    setTodos([...todos, myTodo]);
+    console.log(myTodo);
   };
   const [todos, setTodos] = useState([
     {
@@ -38,12 +58,12 @@ function App() {
   return (
     <>
       <Header title="TO DO LIST for me" searchBar={true} />
-      <AddTodo/>
+      <AddTodo addTodo={addTodo} />
       <Todos todos={todos} onDelete={onDelete} />
       <Footer />
     </>
   
   );
-} 
+}
 
 export default App;

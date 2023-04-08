@@ -1,14 +1,14 @@
-import React from 'react'
+import React from "react";
 
 export const Footer = () => {
-  let footerStyle ={
-    position: "absolute",
-    top: "93vh",
-    width: "100%",
-  }
+  //  let footerStyle ={
+  //   position: "relative",
+  //   top: "70vh",
+  //   width: "100%",
+  // }
   return (
-    <footer className='bg-dark text-light py-3' style={footerStyle}>
-     <p className='text-center'>Copyright &copy; mkrtodolist.com</p>
+    <footer className="bg-dark text-light py-3">
+      <p className="text-center">Copyright &copy; mkrtodolist.com</p>
     </footer>
-  )
-}
+  );
+};
