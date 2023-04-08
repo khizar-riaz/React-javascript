@@ -4,7 +4,9 @@ import Header from "./MyComponents/Header"; //rfc default function import withou
 import { Todos } from "./MyComponents/Todos"; //rafc  const function import with brackets and spece between
 import { Footer } from "./MyComponents/Footer";
 import { AddTodo } from "./MyComponents/AddTodo";
+import { About } from "./MyComponents/About";
 import React, { useState } from "react"; //hooks let you use state and other React features without writing a class.
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"; //for react routers and use routes instead of switches
 function App() {
   const onDelete = (todo) => {
     console.log("I am on delete", todo);
@@ -21,12 +23,9 @@ function App() {
   const addTodo = (title, desc) => {
     console.log("I am adding todo", title, desc);
     let sno;
-    if(todos.length==0)
-    {
-      sno=1;
-    }
-    else
-    {
+    if (todos.length == 0) {
+      sno = 1;
+    } else {
       sno = todos[todos.length - 1].sno + 1;
     }
     const myTodo = {
@@ -57,10 +56,29 @@ function App() {
   ]);
   return (
     <>
-      <Header title="TO DO LIST for me" searchBar={true} />
-      <AddTodo addTodo={addTodo} />
-      <Todos todos={todos} onDelete={onDelete} />
-      <Footer />
+      <Router>
+        <Header title="TO DO LIST for me" searchBar={true} />
+        <Routes>
+          <Route
+            exact
+            path="/"
+            render={() => {
+              return (
+                <>
+                  <AddTodo addTodo={addTodo} />
+                  <Todos todos={todos} onDelete={onDelete} />
+                </>
+              );
+            }}
+          ></Route>
+          <Route exact path="/about" element={<About />} />
+
+          {/* <Route exact path="/about"> 
+          <About />   
+          </Route> */}
+        </Routes>
+        <Footer />
+      </Router>
     </>
   
   );
